@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_project/provider/navbar_provider.dart';
-import 'package:grocery_project/view/screen/main_screen.dart';
+import 'package:grocery_project/view/screen/shop_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
 
         // initialRoute: AppRoutes.splashPage,
         // onGenerateRoute: GeneratedRoute.generatedRoute,
-        home: MainScreen(),
+        home: ShopScreen(),
       ),
     );
   }
