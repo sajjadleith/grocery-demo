@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_project/core/routes/app_routes.dart';
-import 'package:grocery_project/core/routes/ongenerated_route.dart';
-import 'package:grocery_project/view/screen/splash_screen.dart';
+import 'package:grocery_project/provider/navbar_provider.dart';
+import 'package:provider/provider.dart';
+
+import 'core/routes/app_routes.dart';
+import 'core/routes/ongenerated_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,16 +15,20 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Grocery Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        fontFamily: "Cairo",
+    return MultiProvider(
+      providers: [ChangeNotifierProvider<NavBarProvider>(create: (context) => NavBarProvider())],
+      child: MaterialApp(
+        title: 'Grocery Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          fontFamily: "Cairo",
+        ),
+
+        initialRoute: AppRoutes.splashPage,
+        onGenerateRoute: GeneratedRoute.generatedRoute,
+        // home: MainScreen(),
       ),
-      initialRoute: AppRoutes.splashPage,
-      onGenerateRoute: GeneratedRoute.generatedRoute,
-      // home: SplashScreen(),
     );
   }
 }

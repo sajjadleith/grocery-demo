@@ -4,6 +4,7 @@ import 'package:grocery_project/core/app_assets.dart';
 import 'package:grocery_project/core/routes/app_routes.dart';
 import 'package:grocery_project/core/theme_color.dart';
 import 'package:grocery_project/core/utility/validator.dart';
+import 'package:grocery_project/view/screen/blurry_background.dart';
 import 'package:grocery_project/view/widget/custom_appbar_widget.dart';
 import 'package:grocery_project/view/widget/custom_textformfield_widget.dart';
 
@@ -20,70 +21,72 @@ class _VerificationScreenState extends State<VerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 60),
-        decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage(AppAssets.blur), fit: BoxFit.cover),
-        ),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  borderRadius: BorderRadius.circular(20),
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 36,
-                    height: 36,
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                    child: SvgPicture.asset(
-                      AppAssets.arrowBack,
-                      colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
-                      width: 18,
-                      height: 18,
-                      fit: BoxFit.scaleDown,
+      body: Stack(
+        children: [
+          BlurryGradientBackground(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 60),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 36,
+                        height: 36,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+                        child: SvgPicture.asset(
+                          AppAssets.arrowBack,
+                          colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
+                          width: 18,
+                          height: 18,
+                          fit: BoxFit.scaleDown,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              SizedBox(height: 40),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Text(
-                  "Enter your 4-digit code",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                ),
-              ),
-              SizedBox(height: 16),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: Text(
-                  "Code",
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: ThemeColor.thirdColor,
+                  SizedBox(height: 40),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Text(
+                      "Enter your 4-digit code",
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    ),
                   ),
-                ),
+                  SizedBox(height: 16),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: Text(
+                      "Code",
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: ThemeColor.thirdColor,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    child: CustomTextField2Widget(
+                      controller: _codeController,
+                      validator: Validator.validateOtp,
+                      title: "- - - -",
+                    ),
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: CustomTextField2Widget(
-                  controller: _codeController,
-                  validator: Validator.validateOtp,
-                  title: "- - - -",
-                ),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: Padding(
