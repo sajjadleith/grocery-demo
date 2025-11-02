@@ -29,4 +29,6 @@ class AppAssets {
   static const String help = "assets/images/help.svg";
   static const String about = "assets/images/about.svg";
   static const String out = "assets/images/out.svg";
+  static const String sprite = "assets/images/sprite.jpg";
+  static const String coca = "assets/images/coca.jpg";
 }

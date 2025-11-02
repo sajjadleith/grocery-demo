@@ -6,8 +6,6 @@ import 'package:grocery_project/core/routes/app_routes.dart';
 import 'package:grocery_project/core/theme_color.dart';
 import 'package:grocery_project/core/utility/validator.dart';
 import 'package:grocery_project/view/screen/blurry_background.dart';
-import 'package:grocery_project/view/screen/sign_up_screen.dart';
-import 'package:grocery_project/view/widget/custom_appbar_widget.dart';
 import 'package:grocery_project/view/widget/custom_textformfield_widget.dart';
 import 'package:grocery_project/view/widget/custome_button_widget.dart';
 
@@ -52,20 +50,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 5),
                     Text(
                       "Enter your emails and password",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        color: ThemeColor.thirdColor,
-                      ),
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: ThemeColor.thirdColor),
                     ),
                     SizedBox(height: 20),
                     Text(
                       "Email",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: ThemeColor.thirdColor,
-                      ),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: ThemeColor.thirdColor),
                     ),
                     CustomTextField2Widget(
                       controller: emailController,
@@ -75,21 +65,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 10),
                     Text(
                       "Password",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: ThemeColor.thirdColor,
-                      ),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: ThemeColor.thirdColor),
                     ),
                     CustomTextField2Widget(
                       controller: passwordController,
                       isPassword: isPassword,
-                      validator: Validator.validatePassword,
+                      validator: null,
                       title: "Enter Your Password",
                       suffixIcon: IconButton(
-                        icon: Icon(
-                          (isPassword == false) ? Icons.remove_red_eye : Icons.visibility_off,
-                        ),
+                        icon: Icon((isPassword == false) ? Icons.remove_red_eye : Icons.visibility_off),
                         onPressed: () {
                           isPassword = !isPassword;
                           setState(() {});
@@ -116,11 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: RichText(
                         text: TextSpan(
                           text: "Don’t have an account? ",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.black,
-                          ),
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black),
                           children: [
                             TextSpan(
                               text: "Singup",

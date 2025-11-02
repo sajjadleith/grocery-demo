@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_project/provider/navbar_provider.dart';
+import 'package:grocery_project/view/screen/main_screen.dart';
 import 'package:provider/provider.dart';
-
-import 'core/routes/app_routes.dart';
-import 'core/routes/ongenerated_route.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,9 +23,9 @@ class MyApp extends StatelessWidget {
           fontFamily: "Cairo",
         ),
 
-        initialRoute: AppRoutes.splashPage,
-        onGenerateRoute: GeneratedRoute.generatedRoute,
-        // home: MainScreen(),
+        // initialRoute: AppRoutes.splashPage,
+        // onGenerateRoute: GeneratedRoute.generatedRoute,
+        home: MainScreen(),
       ),
     );
   }
