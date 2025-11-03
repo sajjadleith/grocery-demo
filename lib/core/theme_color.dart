@@ -4,4 +4,5 @@ class ThemeColor {
   static Color primaryColor = Color(0xff53B175);
   static Color secondaryColor = Color(0xffFFFFFF);
   static Color thirdColor = Color(0xff7C7C7C);
+  static Color borderColor = Color(0xffE2E2E2);
 }

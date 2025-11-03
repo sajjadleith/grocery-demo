@@ -1,5 +1,6 @@
 class Validator {
   static String? phoneValidation(String? value) {
+    return null;
     if (value == null || value.isEmpty) {
       return "Phone Number is required";
     } else if (value.length != 11) {
@@ -12,6 +13,7 @@ class Validator {
   }
 
   static String? validateOtp(String? value) {
+    return null;
     if (value == null || value.isEmpty) {
       return "Please enter the OTP";
     }
@@ -25,6 +27,7 @@ class Validator {
   }
 
   static String? validateEmail(String? value) {
+    return null;
     if (value == null || value.isEmpty) {
       return 'Email is required';
     }
@@ -36,6 +39,7 @@ class Validator {
   }
 
   static String? validateName(String? value) {
+    return null;
     if (value == null || value.trim().isEmpty) {
       return "Name is required";
     }
@@ -51,6 +55,7 @@ class Validator {
   }
 
   static String? validateCard(String? value) {
+    return null;
     if (value == null || value.isEmpty) {
       return 'Card number is required';
     }
@@ -97,6 +102,7 @@ class Validator {
   }
 
   static String? validateCVV(String? value) {
+    return null;
     if (value == null || value.trim().isEmpty) {
       return "CVV is required";
     }
@@ -112,6 +118,7 @@ class Validator {
   }
 
   static String? validateExpiryDate(DateTime? value) {
+    return null;
     if (value == null) {
       return 'Please select the expiry date';
     }
@@ -132,6 +139,7 @@ class Validator {
   }
 
   static String? validatorDropDownZone(String? value) {
+    return null;
     if (value == null || value.isEmpty) {
       return "Please select a Zone";
     }
@@ -139,6 +147,7 @@ class Validator {
   }
 
   static String? validatorDropDownArea(String? value) {
+    return null;
     if (value == null || value.isEmpty) {
       return "Please select an Area";
     }
@@ -146,6 +155,7 @@ class Validator {
   }
 
   static String? validatePassword(String? value) {
+    return null;
     if (value == null || value.isEmpty) {
       return 'Password is required';
     }
@@ -168,6 +178,7 @@ class Validator {
   }
 
   static String? usernameValidation(String? value) {
+    return null;
     if (value == null || value.trim().isEmpty) {
       return 'Username is required';
     }

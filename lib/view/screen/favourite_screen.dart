@@ -31,7 +31,10 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(preferredSize: Size.fromHeight(50), child: AppBarWidget()),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(50),
+        child: AppBarWidget(title: "Favourite"),
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

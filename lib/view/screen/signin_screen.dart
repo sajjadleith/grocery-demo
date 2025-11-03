@@ -23,7 +23,7 @@ class _SignInScreenState extends State<SignInScreen> {
       body: Stack(
         children: [
           BlurryGradientBackground(),
-          Expanded(
+          Positioned.fill(
             child: SingleChildScrollView(
               child: OrientationBuilder(
                 builder: (context, orientation) {
@@ -39,10 +39,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     children: [
                       Stack(
                         children: [
-                          SizedBox(
-                            width: size.width,
-                            height: size.height * (isPortrait ? 0.48 : 0.7),
-                          ),
+                          SizedBox(width: size.width, height: size.height * (isPortrait ? 0.48 : 0.7)),
                           Positioned(
                             top: topOffset,
                             right: rightOffset,
@@ -52,10 +49,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                 width: size.width * widthFactor,
                                 height: size.height * heightFactor,
                                 decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: AssetImage(AppAssets.singInImage),
-                                    fit: BoxFit.cover,
-                                  ),
+                                  image: DecorationImage(image: AssetImage(AppAssets.singInImage), fit: BoxFit.cover),
                                 ),
                               ),
                             ),
@@ -84,18 +78,16 @@ class _SignInScreenState extends State<SignInScreen> {
                       Center(
                         child: Text(
                           "Or connect with social media",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff828282),
-                          ),
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Color(0xff828282)),
                         ),
                       ),
                       SizedBox(height: 40),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 22),
                         child: CustomeButtonMediaWidget(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, AppRoutes.mainPage);
+                          },
                           title: "Continue with Google",
                           icon: AppAssets.google,
                           color: Color(0xff5383EC),
@@ -106,7 +98,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 22),
                         child: CustomeButtonMediaWidget(
                           onPressed: () {},
-                          title: "Continue with Google",
+                          title: "Continue with Facebook",
                           icon: AppAssets.facebook,
                           color: Color(0xff4A66AC),
                         ),
