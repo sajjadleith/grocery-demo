@@ -9,4 +9,5 @@ class AppRoutes {
   static const String signUpPage = "/signUp";
   static const String mainPage = "/main";
   static const String productPage = "/product";
+  static const String searchProduct = "/search";
 }

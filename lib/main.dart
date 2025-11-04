@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_project/provider/dummy_provider.dart';
 import 'package:grocery_project/provider/navbar_provider.dart';
+import 'package:grocery_project/view/screen/dummy_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'core/routes/app_routes.dart';
@@ -16,7 +18,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider<NavBarProvider>(create: (context) => NavBarProvider())],
+      providers: [
+        ChangeNotifierProvider<NavBarProvider>(create: (context) => NavBarProvider()),
+        ChangeNotifierProvider<DummyProvider>(create: (context) => DummyProvider()),
+      ],
       child: MaterialApp(
         title: 'Grocery Demo',
         debugShowCheckedModeBanner: false,
@@ -28,7 +33,7 @@ class MyApp extends StatelessWidget {
 
         initialRoute: AppRoutes.splashPage,
         onGenerateRoute: GeneratedRoute.generatedRoute,
-        // home: ShopScreen(),
+        // home: DummyScreen(),
       ),
     );
   }

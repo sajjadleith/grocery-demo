@@ -18,7 +18,7 @@ class ProductCardWidget extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          width: 174,
+          width: 180,
           // height: 248,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12),
@@ -31,8 +31,8 @@ class ProductCardWidget extends StatelessWidget {
               Center(
                 child: CachedNetworkImage(
                   imageUrl: imageUrl,
-                  width: 103,
-                  height: 62,
+                  width: 100,
+                  height: 60,
                   placeholder: (context, url) {
                     return CircularProgressIndicator();
                   },
@@ -47,14 +47,10 @@ class ProductCardWidget extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 7),
                 child: Text(
                   product.name,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, overflow: TextOverflow.ellipsis),
                 ),
               ),
               SizedBox(height: 5),
@@ -72,20 +68,16 @@ class ProductCardWidget extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 100,
+                      width: 80,
                       child: Text(
                         "\$${product.price.toString()}",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, overflow: TextOverflow.ellipsis),
                       ),
                     ),
                     InkWell(
@@ -98,9 +90,7 @@ class ProductCardWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(17),
                           color: ThemeColor.primaryColor,
                         ),
-                        child: Center(
-                          child: SvgPicture.asset(AppAssets.increase, width: 17, height: 17),
-                        ),
+                        child: Center(child: SvgPicture.asset(AppAssets.increase, width: 17, height: 17)),
                       ),
                     ),
                   ],
