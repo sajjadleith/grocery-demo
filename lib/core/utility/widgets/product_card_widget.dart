@@ -50,7 +50,11 @@ class ProductCardWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
                   product.name,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, overflow: TextOverflow.ellipsis),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               ),
               SizedBox(height: 5),
@@ -77,7 +81,11 @@ class ProductCardWidget extends StatelessWidget {
                       width: 100,
                       child: Text(
                         "\$${product.price.toString()}",
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, overflow: TextOverflow.ellipsis),
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ),
                     InkWell(
@@ -90,7 +98,9 @@ class ProductCardWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(17),
                           color: ThemeColor.primaryColor,
                         ),
-                        child: Center(child: SvgPicture.asset(AppAssets.increase, width: 17, height: 17)),
+                        child: Center(
+                          child: SvgPicture.asset(AppAssets.increase, width: 17, height: 17),
+                        ),
                       ),
                     ),
                   ],
@@ -101,7 +111,7 @@ class ProductCardWidget extends StatelessWidget {
         ),
         Positioned(
           top: -2,
-          right: -1,
+          right: -3,
           child: IconButton(
             onPressed: () {},
             icon: Icon(Icons.favorite, color: Colors.red),

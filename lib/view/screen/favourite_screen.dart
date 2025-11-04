@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_project/core/app_assets.dart';
@@ -14,19 +15,19 @@ class FavouriteScreen extends StatefulWidget {
 }
 
 class _FavouriteScreenState extends State<FavouriteScreen> {
-  List<ProductModel> favourite = [
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Diet Coke", pcs: "355ml, Price", image: AppAssets.coca, price: 1.99),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-    ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  ];
+  // List<ProductModel> favourite = [
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Diet Coke", pcs: "355ml, Price", image: AppAssets.coca, price: 1.99),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,11 +45,18 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               child: ListView.separated(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 itemBuilder: (context, index) {
-                  final product = favourite[index];
+                  final product = productList[index];
                   return InkWell(
                     onTap: () {},
                     child: ListTile(
-                      leading: Image.asset(product.image, width: 30),
+                      leading: CachedNetworkImage(
+                        imageUrl: product.image,
+                        width: 30,
+                        placeholder: (context, url) {
+                          return CircularProgressIndicator();
+                        },
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      ),
                       title: Text(
                         product.name,
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, overflow: TextOverflow.ellipsis),
@@ -83,7 +91,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                 separatorBuilder: (context, index) {
                   return Divider(thickness: 1, color: Colors.grey[400]);
                 },
-                itemCount: favourite.length,
+                itemCount: productList.length,
               ),
             ),
           ],

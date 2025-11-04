@@ -11,6 +11,8 @@ import 'package:grocery_project/view/screen/signin_screen.dart';
 import 'package:grocery_project/view/screen/splash_screen.dart';
 import 'package:grocery_project/view/screen/verification_screen.dart';
 
+import '../../view/screen/product_screen.dart';
+
 class GeneratedRoute {
   static Route<dynamic> generatedRoute(RouteSettings settings) {
     final args = settings.arguments as Map?;
@@ -33,6 +35,8 @@ class GeneratedRoute {
         return MaterialPageRoute(builder: (_) => SignUpScreen());
       case AppRoutes.mainPage:
         return MaterialPageRoute(builder: (_) => MainScreen());
+      case AppRoutes.productPage:
+        return MaterialPageRoute(builder: (_) => ProductScreen());
       default:
         return MaterialPageRoute(builder: (_) => ErrorWidgetScreen());
     }

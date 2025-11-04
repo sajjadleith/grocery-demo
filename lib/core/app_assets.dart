@@ -36,4 +36,5 @@ class AppAssets {
   static const String image3 = "assets/images/image3.jpg";
   static const String increase = "assets/images/increase.svg";
   static const String im = "assets/images/im1.jpg";
+  static const String filter = "assets/images/filter.svg";
 }
