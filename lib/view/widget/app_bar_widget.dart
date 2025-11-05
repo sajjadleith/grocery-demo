@@ -7,9 +7,10 @@ class AppBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: MediaQuery.sizeOf(context).width,
+      height: 100,
       alignment: Alignment.center,
-      padding: EdgeInsets.only(top: 20),
+      padding: EdgeInsets.symmetric(vertical: 30),
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(color: Color(0xffbdb7b794), width: 1)),
       ),
