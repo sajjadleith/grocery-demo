@@ -38,4 +38,9 @@ class AppAssets {
   static const String im = "assets/images/im1.jpg";
   static const String filter = "assets/images/filter.svg";
   static const String decrease = "assets/images/decrease.svg";
+  static const String upload = "assets/images/upload.svg";
+  static const String arrowDropDown = "assets/images/arrow_drop_down.svg";
+  static const String arrowUp = "assets/images/arrow_up.svg";
+  static const String fiveStars = "assets/images/five_stars.svg";
+  static const String masterCart = "assets/images/master_card.svg";
 }

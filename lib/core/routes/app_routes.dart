@@ -10,4 +10,5 @@ class AppRoutes {
   static const String mainPage = "/main";
   static const String productPage = "/product";
   static const String searchProduct = "/search";
+  static const String detailsPage = "/details";
 }

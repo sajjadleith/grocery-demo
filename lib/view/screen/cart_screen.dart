@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_project/model/product_model.dart';
 import 'package:grocery_project/view/widget/app_bar_widget.dart';
 import 'package:grocery_project/view/widget/custome_button_widget.dart';
+import 'package:grocery_project/view/widget/show_bottom_sheet_checkout_widget.dart';
 
 import '../widget/card_cart_widget.dart';
 
@@ -51,7 +52,13 @@ class _CartScreenState extends State<CartScreen> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: SizedBox(
-          child: CutomeButtonWidgetWithRow(title: "Go To Check Out", onPressed: () {}, totalPrice: 312),
+          child: CutomeButtonWidgetWithRow(
+            title: "Go To Check Out",
+            onPressed: () {
+              ShowBottomSheetCheckoutWidget.showBottomSheetCheckout(context);
+            },
+            totalPrice: 312,
+          ),
         ),
       ),
     );
