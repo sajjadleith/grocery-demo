@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_project/provider/dummy_provider.dart';
 import 'package:grocery_project/provider/navbar_provider.dart';
 import 'package:grocery_project/view/screen/dummy_screen.dart';
+import 'package:grocery_project/view/screen/order_accepted_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'core/routes/app_routes.dart';
@@ -31,9 +32,9 @@ class MyApp extends StatelessWidget {
           fontFamily: "Cairo",
         ),
 
-        initialRoute: AppRoutes.splashPage,
-        onGenerateRoute: GeneratedRoute.generatedRoute,
-        // home: DummyScreen(),
+        // initialRoute: AppRoutes.splashPage,
+        // onGenerateRoute: GeneratedRoute.generatedRoute,
+        home: OrderAcceptedScreen(),
       ),
     );
   }

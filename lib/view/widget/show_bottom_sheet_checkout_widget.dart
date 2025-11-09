@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grocery_project/core/app_assets.dart';
+import 'package:grocery_project/core/routes/app_routes.dart';
 import 'package:grocery_project/core/theme_color.dart';
 import 'package:grocery_project/core/utility/widgets/customDivider_widget.dart';
 import 'package:grocery_project/core/utility/widgets/customExpansion_widget.dart';
@@ -110,7 +111,12 @@ class ShowBottomSheetCheckoutWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
-                  child: CustomeButtonWidget(title: "Place Order", onPressed: () {}),
+                  child: CustomeButtonWidget(
+                    title: "Place Order",
+                    onPressed: () {
+                      Navigator.pushNamed(context, AppRoutes.orderPage);
+                    },
+                  ),
                 ),
               ],
             ),

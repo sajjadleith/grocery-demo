@@ -6,6 +6,7 @@ import 'package:grocery_project/view/screen/login_screen.dart';
 import 'package:grocery_project/view/screen/main_screen.dart';
 import 'package:grocery_project/view/screen/number_screen.dart';
 import 'package:grocery_project/view/screen/onboarding_screen.dart';
+import 'package:grocery_project/view/screen/order_accepted_screen.dart';
 import 'package:grocery_project/view/screen/search_product_screen.dart';
 import 'package:grocery_project/view/screen/sign_up_screen.dart';
 import 'package:grocery_project/view/screen/signin_screen.dart';
@@ -43,6 +44,8 @@ class GeneratedRoute {
         return MaterialPageRoute(builder: (_) => SearchProductScreen());
       case AppRoutes.detailsPage:
         return MaterialPageRoute(builder: (_) => ProductDetailsScreen());
+      case AppRoutes.orderPage:
+        return MaterialPageRoute(builder: (_) => OrderAcceptedScreen());
       default:
         return MaterialPageRoute(builder: (_) => ErrorWidgetScreen());
     }
