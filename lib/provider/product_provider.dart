@@ -1,20 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_project/model/product_model.dart';
+import '../model/product_model.dart';
 
 class ProductProvider extends ChangeNotifier {
-  List<ProductModel> allProduct = [];
-  List<ProductModel> filteredProduct = [];
-  ProductProvider() {
-    allProduct = productList;
-    filteredProduct = allProduct;
+  List<ProductModel> filteredProducts = productList;
+
+  final Map<String, bool> selectedCategories = {};
+  final Map<String, bool> selectedBrands = {};
+
+  void toggleCategory(String category, bool value) {
+    selectedCategories[category] = value;
+    notifyListeners();
   }
 
-  void applyFilter(String? category, String? brand) {
-    filteredProduct = allProduct.where((p) {
-      final matchedCategory = category == null || category == "Fruits" || p.categories == category;
-      final matchedBrand = brand == null || p.brand == brand;
-      return matchedCategory && matchedBrand;
+  void toggleBrand(String brand, bool value) {
+    selectedBrands[brand] = value;
+    notifyListeners();
+  }
+
+  void applyFilter() {
+    final selectedCats = selectedCategories.entries
+        .where((e) => e.value)
+        .map((e) => e.key)
+        .toList();
+    final selectedBrds = selectedBrands.entries.where((e) => e.value).map((e) => e.key).toList();
+
+    filteredProducts = productList.where((product) {
+      final matchCategory = selectedCats.isEmpty || selectedCats.contains(product.categories);
+      final matchBrand = selectedBrds.isEmpty || selectedBrds.contains(product.brand);
+      return matchCategory && matchBrand;
     }).toList();
+
+    notifyListeners();
+  }
+
+  void clearFilter() {
+    selectedCategories.clear();
+    selectedBrands.clear();
+    filteredProducts = productList;
     notifyListeners();
   }
 }

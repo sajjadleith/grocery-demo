@@ -10,12 +10,13 @@ class GroceriesModel {
 }
 
 final List<GroceriesModel> groceriesList = [
-  GroceriesModel(name: 'Apples', image: AppAssets.im, color: Colors.red.shade100),
-  GroceriesModel(name: 'Bananas', image: AppAssets.im, color: Colors.yellow.shade100),
-  GroceriesModel(name: 'Grapes', image: AppAssets.im, color: Colors.purple.shade100),
-  GroceriesModel(name: 'Oranges', image: AppAssets.im, color: Colors.orange.shade100),
-  GroceriesModel(name: 'Watermelon', image: AppAssets.im, color: Colors.green.shade100),
-  GroceriesModel(name: 'Watermelon', image: AppAssets.im, color: Colors.green.shade100),
-  GroceriesModel(name: 'Watermelon', image: AppAssets.im, color: Colors.green.shade100),
-  GroceriesModel(name: 'Watermelon', image: AppAssets.im, color: Colors.green.shade100),
+  GroceriesModel(name: 'Fruits', image: AppAssets.im, color: Colors.red.shade100),
+  GroceriesModel(name: 'Vegetables', image: AppAssets.im, color: Colors.yellow.shade100),
+  GroceriesModel(name: 'Dairy', image: AppAssets.im, color: Colors.purple.shade100),
+  GroceriesModel(name: 'Bakery', image: AppAssets.im, color: Colors.orange.shade100),
+  GroceriesModel(name: 'Meat', image: AppAssets.im, color: Colors.green.shade100),
+  GroceriesModel(name: 'Beverages', image: AppAssets.im, color: Colors.green.shade100),
+  GroceriesModel(name: 'Frozen Foods', image: AppAssets.im, color: Colors.green.shade100),
+  GroceriesModel(name: 'Household Supplies', image: AppAssets.im, color: Colors.green.shade100),
+  GroceriesModel(name: 'Personal Care', image: AppAssets.im, color: Colors.green.shade100),
 ];
