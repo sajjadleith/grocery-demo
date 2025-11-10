@@ -18,7 +18,13 @@ class _FilterItemWidgetState extends State<FilterItemWidget> {
       color: Colors.transparent,
       child: InkWell(
         onTap: () {
-          ShowBottomSheetWidget.showBottomSheet(context);
+          showModalBottomSheet(
+            shape: null,
+            context: context,
+            isScrollControlled: true,
+            backgroundColor: const Color(0xffF2F3F2),
+            builder: (context) => XWidget(),
+          );
         },
         borderRadius: BorderRadius.circular(20),
         child: Container(
