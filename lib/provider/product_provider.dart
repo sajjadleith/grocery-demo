@@ -11,7 +11,8 @@ class ProductProvider extends ChangeNotifier {
 
   void applyFilter(String? category, String? brand) {
     filteredProduct = allProduct.where((p) {
-      final matchedCategory = category == null || category == "Fruits" || p.categories == category;
+      final matchedCategory =
+          category == null || category == "Fruits" || p.categories == category;
       final matchedBrand = brand == null || p.brand == brand;
       return matchedCategory && matchedBrand;
     }).toList();
