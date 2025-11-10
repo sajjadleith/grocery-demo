@@ -4,7 +4,7 @@ class ProductModel {
   final String image;
   final double price;
   String? desc;
-  final String categories;
+  String categories;
   final String brand;
 
   ProductModel({

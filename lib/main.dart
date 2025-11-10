@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_project/provider/dummy_provider.dart';
 import 'package:grocery_project/provider/navbar_provider.dart';
+import 'package:grocery_project/provider/product_provider.dart';
+import 'package:grocery_project/view/screen/dumdum_screen.dart';
 import 'package:grocery_project/view/screen/dummy_screen.dart';
 import 'package:grocery_project/view/screen/order_accepted_screen.dart';
 import 'package:provider/provider.dart';
@@ -22,6 +24,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<NavBarProvider>(create: (context) => NavBarProvider()),
         ChangeNotifierProvider<DummyProvider>(create: (context) => DummyProvider()),
+        ChangeNotifierProvider<ProductProvider>(create: (context) => ProductProvider()),
       ],
       child: MaterialApp(
         title: 'Grocery Demo',
@@ -32,9 +35,9 @@ class MyApp extends StatelessWidget {
           fontFamily: "Cairo",
         ),
 
-        // initialRoute: AppRoutes.splashPage,
-        // onGenerateRoute: GeneratedRoute.generatedRoute,
-        home: OrderAcceptedScreen(),
+        initialRoute: AppRoutes.splashPage,
+        onGenerateRoute: GeneratedRoute.generatedRoute,
+        // home: DumdumScreen(),
       ),
     );
   }

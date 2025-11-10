@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_project/provider/product_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/utility/widgets/product_card_widget.dart';
 import '../../model/product_model.dart';
@@ -9,6 +11,7 @@ class ProductItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
+    final provider = context.watch<ProductProvider>();
     return GridView.builder(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       physics: const NeverScrollableScrollPhysics(),
@@ -19,10 +22,13 @@ class ProductItemWidget extends StatelessWidget {
         mainAxisSpacing: 14,
         childAspectRatio: width < 400 ? 0.74 : 0.8,
       ),
-      itemCount: productList.length,
+      itemCount: provider.filteredProduct.length,
       itemBuilder: (context, index) {
-        final product = productList[index];
-        return ProductCardWidget(product: product);
+        // final product = productList[index];
+        return Selector<ProductProvider, ProductModel>(
+          builder: (context, value, child) => ProductCardWidget(product: value),
+          selector: (context, prov) => prov.filteredProduct[index],
+        );
       },
     );
   }

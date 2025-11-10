@@ -65,7 +65,7 @@ class _ShopScreenState extends State<ShopScreen> {
               ),
               SliverToBoxAdapter(child: SizedBox(height: 20)),
               SliverToBoxAdapter(child: GroceriesCardItemWidget()),
-              SliverToBoxAdapter(child: SizedBox(height: 10)),
+              SliverToBoxAdapter(child: SizedBox(height: 20)),
               SliverToBoxAdapter(child: GroceriesWidget()),
             ],
           ),
