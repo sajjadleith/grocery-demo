@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grocery_project/core/app_assets.dart';
 import 'package:grocery_project/model/product_model.dart';
+import 'package:grocery_project/provider/product_provider.dart' show ProductProvider;
+import 'package:provider/provider.dart' show Provider;
 
 class RowDetailWidget extends StatefulWidget {
   RowDetailWidget({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class RowDetailWidget extends StatefulWidget {
 class _RowDetailWidgetState extends State<RowDetailWidget> {
   @override
   Widget build(BuildContext context) {
+    final productList = Provider.of<ProductProvider>(context).productList;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 22),
       child: Row(

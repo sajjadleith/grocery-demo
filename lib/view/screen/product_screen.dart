@@ -19,7 +19,7 @@ class _ProductScreenState extends State<ProductScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [AppBarProductWidget(), SizedBox(height: 20), ProductItemWidget()],
+            children: [AppBarProductWidget(), SizedBox(height: 20), ProductItemSearchWidget()],
           ),
         ),
       ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_project/provider/product_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../theme_color.dart';
 
@@ -51,6 +53,13 @@ class _CustomSearchButtonWidgetState extends State<CustomSearchButtonWidget> {
           filled: true,
           fillColor: const Color(0xffF2F3F2),
         ),
+        onChanged: (value) {
+          if (value.isEmpty) {
+            Provider.of<ProductProvider>(context, listen: false).clearSearchFilter();
+          } else {
+            Provider.of<ProductProvider>(context, listen: false).searchFilter(search: widget.controller.text);
+          }
+        },
         controller: widget.controller,
         focusNode: _focusNode,
       ),

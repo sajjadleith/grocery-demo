@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_project/core/utility/widgets/product_card_widget.dart';
+import 'package:grocery_project/provider/product_provider.dart' show ProductProvider;
+import 'package:provider/provider.dart';
 
 import '../../../model/product_model.dart';
 
@@ -8,6 +10,7 @@ class GroceriesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final productList = Provider.of<ProductProvider>(context).productList;
     return SizedBox(
       width: 154,
       height: 248,

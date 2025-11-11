@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_project/core/utility/widgets/custom_search_button_widget.dart';
-import 'package:grocery_project/view/widget/product_item_widget.dart';
 
 import '../../core/utility/widgets/filter_item_widget.dart';
+import '../widget/product_item_widget.dart';
 
 class SearchProductScreen extends StatefulWidget {
   const SearchProductScreen({super.key});
@@ -45,7 +45,7 @@ class _SearchProductScreenState extends State<SearchProductScreen> {
                 ),
               ),
               SizedBox(height: 5),
-              ProductItemWidget(),
+              ProductItemSearchWidget(),
             ],
           ),
         ),

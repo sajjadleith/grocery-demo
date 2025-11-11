@@ -115,6 +115,14 @@ class _XWidgetState extends State<XWidget> {
                         Navigator.pop(context);
                       },
                     ),
+                    const SizedBox(height: 10),
+                    CustomeButtonWidget(
+                      title: "Clear Filter",
+                      onPressed: () {
+                        context.read<ProductProvider>().clearFilter();
+                        Navigator.pop(context);
+                      },
+                    ),
                   ],
                 ),
               ),

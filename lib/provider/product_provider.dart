@@ -1,28 +1,138 @@
 import 'package:flutter/material.dart';
+
 import '../model/product_model.dart';
 
 class ProductProvider extends ChangeNotifier {
-  List<ProductModel> filteredProducts = productList;
+  List<ProductModel> productList = [
+    ProductModel(
+      name: 'Apple',
+      pcs: '1 kg',
+      image: 'https://picsum.photos/200?fruit=apple',
+      price: 2.5,
+      desc: 'Fresh red apples rich in fiber and vitamins.',
+      categories: 'Fruits',
+      brand: 'FreshFarm',
+    ),
+    ProductModel(
+      name: 'Banana',
+      pcs: '1 dozen',
+      image: 'https://picsum.photos/200?fruit=banana',
+      price: 1.8,
+      desc: 'Sweet ripe bananas perfect for snacks and smoothies.',
+      categories: 'Fruits',
+      brand: 'TropicalGold',
+    ),
+    ProductModel(
+      name: 'Orange Juice',
+      pcs: '1 liter',
+      image: 'https://picsum.photos/200?drink=orangejuice',
+      price: 3.0,
+      desc: '100% natural orange juice with no added sugar.',
+      categories: 'Drinks',
+      brand: 'SunFresh',
+    ),
+    ProductModel(
+      name: 'Tomato',
+      pcs: '1 kg',
+      image: 'https://picsum.photos/200?veg=tomato',
+      price: 1.2,
+      desc: 'Fresh organic tomatoes great for salads and cooking.',
+      categories: 'Vegetables',
+      brand: 'GreenLeaf',
+    ),
+    ProductModel(
+      name: 'Potato',
+      pcs: '2 kg',
+      image: 'https://picsum.photos/200?veg=potato',
+      price: 1.5,
+      desc: 'High-quality golden potatoes ideal for frying and mashing.',
+      categories: 'Vegetables',
+      brand: 'FarmersChoice',
+    ),
+    ProductModel(
+      name: 'Milk',
+      pcs: '1 liter',
+      image: 'https://picsum.photos/200?drink=milk',
+      price: 1.0,
+      desc: 'Fresh full cream milk rich in calcium.',
+      categories: 'Dairy',
+      brand: 'PureDairy',
+    ),
+    ProductModel(
+      name: 'Bread',
+      pcs: '1 loaf',
+      image: 'https://picsum.photos/200?food=bread',
+      price: 1.2,
+      desc: 'Soft white bread baked fresh every morning.',
+      categories: 'Bakery',
+      brand: 'BakeHouse',
+    ),
+    ProductModel(
+      name: 'Eggs',
+      pcs: '12 pcs',
+      image: 'https://picsum.photos/200?food=eggs',
+      price: 2.2,
+      desc: 'Farm fresh eggs with high protein content.',
+      categories: 'Dairy',
+      brand: 'GoldenHen',
+    ),
+    ProductModel(
+      name: 'Cucumber',
+      pcs: '1 kg',
+      image: 'https://picsum.photos/200?veg=cucumber',
+      price: 1.4,
+      desc: 'Crisp and refreshing cucumbers perfect for salads.',
+      categories: 'Vegetables',
+      brand: 'GreenLeaf',
+    ),
+    ProductModel(
+      name: 'Strawberry Yogurt',
+      pcs: '500 ml',
+      image: 'https://picsum.photos/200?drink=yogurt',
+      price: 2.8,
+      desc: 'Creamy yogurt with real strawberry flavor.',
+      categories: 'Dairy',
+      brand: 'YogoFresh',
+    ),
+  ];
 
-  final Map<String, bool> selectedCategories = {};
-  final Map<String, bool> selectedBrands = {};
+  List<ProductModel> filteredProducts = [];
 
-  void toggleCategory(String category, bool value) {
+  Map<String, bool> selectedCategories = {};
+  Map<String, bool> selectedBrands = {};
+
+  toggleCategory(String category, bool value) {
     selectedCategories[category] = value;
     notifyListeners();
   }
 
-  void toggleBrand(String brand, bool value) {
+  toggleBrand(String brand, bool value) {
     selectedBrands[brand] = value;
     notifyListeners();
   }
 
-  void applyFilter() {
-    final selectedCats = selectedCategories.entries
-        .where((e) => e.value)
-        .map((e) => e.key)
-        .toList();
-    final selectedBrds = selectedBrands.entries.where((e) => e.value).map((e) => e.key).toList();
+  searchFilter({String search = ""}) {
+    var selectedCats = selectedCategories.entries.where((e) => e.value).map((e) => e.key).toList();
+    var selectedBrds = selectedBrands.entries.where((e) => e.value).map((e) => e.key).toList();
+
+    if (selectedCats.isEmpty && selectedBrds.isEmpty) {
+      filteredProducts = productList.where((product) {
+        return product.name.toLowerCase().contains(search.toString());
+      }).toList();
+    } else {
+      filteredProducts = productList.where((product) {
+        final matchCategory = selectedCats.isEmpty || selectedCats.contains(product.categories);
+        final matchBrand = selectedBrds.isEmpty || selectedBrds.contains(product.brand);
+        return product.name.toLowerCase().contains(search.toString()) && matchCategory && matchBrand;
+      }).toList();
+    }
+
+    notifyListeners();
+  }
+
+  applyFilter() {
+    var selectedCats = selectedCategories.entries.where((e) => e.value).map((e) => e.key).toList();
+    var selectedBrds = selectedBrands.entries.where((e) => e.value).map((e) => e.key).toList();
 
     filteredProducts = productList.where((product) {
       final matchCategory = selectedCats.isEmpty || selectedCats.contains(product.categories);
@@ -33,10 +143,15 @@ class ProductProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void clearFilter() {
+  clearSearchFilter() {
+    filteredProducts.clear();
+    notifyListeners();
+  }
+
+  clearFilter() {
     selectedCategories.clear();
     selectedBrands.clear();
-    filteredProducts = productList;
+    filteredProducts.clear();
     notifyListeners();
   }
 }
