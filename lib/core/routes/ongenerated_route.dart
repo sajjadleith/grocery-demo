@@ -7,6 +7,7 @@ import 'package:grocery_project/view/screen/main_screen.dart';
 import 'package:grocery_project/view/screen/number_screen.dart';
 import 'package:grocery_project/view/screen/onboarding_screen.dart';
 import 'package:grocery_project/view/screen/order_accepted_screen.dart';
+import 'package:grocery_project/view/screen/products_by_category_screen.dart';
 import 'package:grocery_project/view/screen/search_product_screen.dart';
 import 'package:grocery_project/view/screen/sign_up_screen.dart';
 import 'package:grocery_project/view/screen/signin_screen.dart';
@@ -18,7 +19,7 @@ import '../../view/screen/product_screen.dart';
 
 class GeneratedRoute {
   static Route<dynamic> generatedRoute(RouteSettings settings) {
-    final args = settings.arguments as Map?;
+    final args = settings.arguments;
     switch (settings.name) {
       case AppRoutes.splashPage:
         return MaterialPageRoute(builder: (_) => SplashScreen());
@@ -46,6 +47,8 @@ class GeneratedRoute {
         return MaterialPageRoute(builder: (_) => ProductDetailsScreen());
       case AppRoutes.orderPage:
         return MaterialPageRoute(builder: (_) => OrderAcceptedScreen());
+      case AppRoutes.productsByCategory:
+        return MaterialPageRoute(builder: (_) => ProductsByCategoryScreen(), settings: settings);
       default:
         return MaterialPageRoute(builder: (_) => ErrorWidgetScreen());
     }

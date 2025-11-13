@@ -10,7 +10,7 @@ class AppBarWidget extends StatelessWidget {
       width: MediaQuery.sizeOf(context).width,
       height: 100,
       alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(color: Color(0xffbdb7b794), width: 1)),
       ),

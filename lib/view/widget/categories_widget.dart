@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_project/core/routes/app_routes.dart';
+import 'package:grocery_project/model/category_model.dart';
 
 import '../../model/groceries_model.dart';
 
@@ -23,7 +24,7 @@ class CategoriesWidget extends StatelessWidget {
         return InkWell(
           borderRadius: BorderRadius.circular(12),
           onTap: () {
-            Navigator.pushNamed(context, AppRoutes.productPage);
+            Navigator.pushNamed(context, AppRoutes.productsByCategory, arguments: categories[index]);
           },
           child: Ink(
             width: 175,

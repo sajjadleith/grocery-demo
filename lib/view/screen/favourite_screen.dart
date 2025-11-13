@@ -6,8 +6,6 @@ import 'package:grocery_project/core/theme_color.dart';
 import 'package:grocery_project/provider/fav_provider.dart';
 import 'package:provider/provider.dart';
 
-import '../widget/app_bar_widget.dart';
-
 class FavouriteScreen extends StatefulWidget {
   FavouriteScreen({Key? key}) : super(key: key);
 
@@ -19,66 +17,79 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
-        child: AppBarWidget(title: "Favourite"),
-      ),
-      body: SafeArea(
-        child: Consumer<FavProvider>(
-          builder: (context, favProvider, child) {
-            return ListView.separated(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              itemBuilder: (context, index) {
-                final product = favProvider.favList[index];
-                return InkWell(
-                  onTap: () {},
-                  child: ListTile(
-                    leading: CachedNetworkImage(
-                      imageUrl: product.image,
-                      width: 30,
-                      placeholder: (context, url) {
-                        return CircularProgressIndicator();
-                      },
-                      errorWidget: (context, url, error) => Icon(Icons.error),
-                    ),
-                    title: Text(
-                      product.name,
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, overflow: TextOverflow.ellipsis),
-                    ),
-                    subtitle: Text(
-                      product.pcs,
-                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: ThemeColor.thirdColor),
-                    ),
-                    trailing: SizedBox(
-                      width: 70,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              "\$${product.price.toString()}",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w400,
-                                overflow: TextOverflow.ellipsis,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 20),
+          Container(
+            width: MediaQuery.sizeOf(context).width,
+            height: 100,
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(vertical: 10),
+            decoration: BoxDecoration(
+              border: Border(bottom: BorderSide(color: Color(0xffbdb7b794), width: 1)),
+            ),
+            child: Text("Favourite", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+          ),
+          Expanded(
+            child: Consumer<FavProvider>(
+              builder: (context, favProvider, child) {
+                return ListView.separated(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  itemBuilder: (context, index) {
+                    final product = favProvider.favList[index];
+                    return InkWell(
+                      onTap: () {},
+                      child: ListTile(
+                        leading: CachedNetworkImage(
+                          imageUrl: product.image,
+                          width: 30,
+                          placeholder: (context, url) {
+                            return CircularProgressIndicator();
+                          },
+                          errorWidget: (context, url, error) => Icon(Icons.error),
+                        ),
+                        title: Text(
+                          product.name,
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, overflow: TextOverflow.ellipsis),
+                        ),
+                        subtitle: Text(
+                          product.pcs,
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: ThemeColor.thirdColor),
+                        ),
+                        trailing: SizedBox(
+                          width: 70,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  "\$${product.price.toString()}",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
                               ),
-                            ),
+                              // SizedBox(width: 8),
+                              SvgPicture.asset(AppAssets.arrowForward, color: Colors.black, width: 8, height: 14),
+                            ],
                           ),
-                          // SizedBox(width: 8),
-                          SvgPicture.asset(AppAssets.arrowForward, color: Colors.black, width: 8, height: 14),
-                        ],
+                        ),
                       ),
-                    ),
-                  ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return Divider(thickness: 1, color: Colors.grey[400]);
+                  },
+                  itemCount: favProvider.favList.length,
                 );
               },
-              separatorBuilder: (context, index) {
-                return Divider(thickness: 1, color: Colors.grey[400]);
-              },
-              itemCount: favProvider.favList.length,
-            );
-          },
-        ),
+            ),
+          ),
+        ],
       ),
     );
   }
