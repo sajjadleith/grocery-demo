@@ -25,30 +25,23 @@ class _XWidgetState extends State<XWidget> {
     return Scaffold(
       backgroundColor: const Color(0xffF2F3F2),
       body: SafeArea(
+        bottom: false,
         child: SingleChildScrollView(
-          padding: const EdgeInsets.only(bottom: 40),
+          // padding: const EdgeInsets.only(bottom: 50),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 40, left: 16, right: 16, bottom: 30),
+                padding: const EdgeInsets.only(top: 60, left: 16, right: 16, bottom: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     InkWell(
                       borderRadius: BorderRadius.circular(30),
                       onTap: () => Navigator.pop(context),
-                      child: SvgPicture.asset(
-                        AppAssets.cancel,
-                        width: 30,
-                        height: 30,
-                        colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn),
-                      ),
+                      child: SvgPicture.asset(AppAssets.cancel, width: 30, height: 30, colorFilter: const ColorFilter.mode(Colors.black, BlendMode.srcIn)),
                     ),
-                    const Text(
-                      "Filter",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                    ),
+                    const Text("Filter", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
                     const SizedBox(width: 30),
                   ],
                 ),
@@ -58,19 +51,13 @@ class _XWidgetState extends State<XWidget> {
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: ThemeColor.borderColor,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    topRight: Radius.circular(30),
-                  ),
+                  borderRadius: const BorderRadius.only(topLeft: Radius.circular(30), topRight: Radius.circular(30)),
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Categories",
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-                    ),
+                    const Text("Categories", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
                     const SizedBox(height: 20),
 
                     ListView.builder(
@@ -87,10 +74,7 @@ class _XWidgetState extends State<XWidget> {
                       },
                     ),
                     const SizedBox(height: 20),
-                    const Text(
-                      "Brand",
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
-                    ),
+                    const Text("Brand", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)),
                     const SizedBox(height: 20),
 
                     ListView.builder(
@@ -145,11 +129,7 @@ Widget _buildCheck(String title, bool checked, void Function(bool?)? onChanged) 
       ),
       Text(
         title,
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: checked ? ThemeColor.primaryColor : Colors.black,
-        ),
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: checked ? ThemeColor.primaryColor : Colors.black),
       ),
     ],
   );

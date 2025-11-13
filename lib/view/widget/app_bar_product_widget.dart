@@ -5,7 +5,8 @@ import '../../core/app_assets.dart';
 import '../../core/utility/widgets/filter_item_widget.dart';
 
 class AppBarProductWidget extends StatelessWidget {
-  const AppBarProductWidget({super.key});
+  const AppBarProductWidget({super.key, required this.title});
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +26,11 @@ class AppBarProductWidget extends StatelessWidget {
               width: 36,
               height: 36,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-              child: SvgPicture.asset(
-                AppAssets.arrowBack,
-                colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),
-                width: 18,
-                height: 18,
-                fit: BoxFit.scaleDown,
-              ),
+              child: SvgPicture.asset(AppAssets.arrowBack, colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn), width: 18, height: 18, fit: BoxFit.scaleDown),
             ),
           ),
         ),
-        Text("Beverages", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+        Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
         FilterItemWidget(),
       ],
     );

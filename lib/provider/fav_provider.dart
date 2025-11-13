@@ -1,9 +1,23 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
+
+import '../model/product_model.dart';
 
 class FavProvider extends ChangeNotifier {
-  bool isFav = false;
-  changeFav(bool fav) {
-    isFav = fav;
+  List<ProductModel> favList = [];
+
+  void toggleFav(ProductModel product) {
+    product.isFav = !product.isFav;
+
+    if (product.isFav) {
+      favList.add(product);
+    } else {
+      favList.remove(product);
+    }
+
     notifyListeners();
+  }
+
+  bool isFav(ProductModel product) {
+    return product.isFav;
   }
 }

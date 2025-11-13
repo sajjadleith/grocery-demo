@@ -12,6 +12,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'Fresh red apples rich in fiber and vitamins.',
       categories: 'Fruits',
       brand: 'FreshFarm',
+      isFav: false,
     ),
     ProductModel(
       name: 'Banana',
@@ -21,6 +22,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'Sweet ripe bananas perfect for snacks and smoothies.',
       categories: 'Fruits',
       brand: 'TropicalGold',
+      isFav: false,
     ),
     ProductModel(
       name: 'Orange Juice',
@@ -30,6 +32,7 @@ class ProductProvider extends ChangeNotifier {
       desc: '100% natural orange juice with no added sugar.',
       categories: 'Drinks',
       brand: 'SunFresh',
+      isFav: false,
     ),
     ProductModel(
       name: 'Tomato',
@@ -39,6 +42,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'Fresh organic tomatoes great for salads and cooking.',
       categories: 'Vegetables',
       brand: 'GreenLeaf',
+      isFav: false,
     ),
     ProductModel(
       name: 'Potato',
@@ -48,6 +52,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'High-quality golden potatoes ideal for frying and mashing.',
       categories: 'Vegetables',
       brand: 'FarmersChoice',
+      isFav: false,
     ),
     ProductModel(
       name: 'Milk',
@@ -57,6 +62,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'Fresh full cream milk rich in calcium.',
       categories: 'Dairy',
       brand: 'PureDairy',
+      isFav: false,
     ),
     ProductModel(
       name: 'Bread',
@@ -66,6 +72,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'Soft white bread baked fresh every morning.',
       categories: 'Bakery',
       brand: 'BakeHouse',
+      isFav: false,
     ),
     ProductModel(
       name: 'Eggs',
@@ -75,6 +82,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'Farm fresh eggs with high protein content.',
       categories: 'Dairy',
       brand: 'GoldenHen',
+      isFav: false,
     ),
     ProductModel(
       name: 'Cucumber',
@@ -84,6 +92,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'Crisp and refreshing cucumbers perfect for salads.',
       categories: 'Vegetables',
       brand: 'GreenLeaf',
+      isFav: false,
     ),
     ProductModel(
       name: 'Strawberry Yogurt',
@@ -93,6 +102,7 @@ class ProductProvider extends ChangeNotifier {
       desc: 'Creamy yogurt with real strawberry flavor.',
       categories: 'Dairy',
       brand: 'YogoFresh',
+      isFav: false,
     ),
   ];
 

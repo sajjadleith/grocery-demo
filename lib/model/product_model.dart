@@ -6,14 +6,7 @@ class ProductModel {
   String? desc;
   String categories;
   final String brand;
+  bool isFav;
 
-  ProductModel({
-    required this.name,
-    required this.pcs,
-    this.desc,
-    required this.image,
-    required this.price,
-    required this.categories,
-    required this.brand,
-  });
+  ProductModel({required this.name, required this.pcs, this.desc, required this.image, required this.price, required this.categories, required this.brand, required this.isFav});
 }

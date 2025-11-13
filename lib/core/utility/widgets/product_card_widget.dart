@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grocery_project/model/product_model.dart';
+import 'package:grocery_project/provider/fav_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../app_assets.dart';
 import '../../theme_color.dart';
@@ -99,13 +101,25 @@ class ProductCardWidget extends StatelessWidget {
             ],
           ),
         ),
-        Positioned(
-          top: -2,
-          right: -3,
-          child: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.favorite, color: Colors.red),
-          ),
+        Selector<FavProvider, bool>(
+          builder: (context, favProvider, child) {
+            return Positioned(
+              top: -2,
+              right: -3,
+              child: IconButton(
+                onPressed: () {
+                  context.read<FavProvider>().toggleFav(product);
+                },
+                icon: Icon(
+                  context.read<FavProvider>().isFav(product) ? Icons.favorite : Icons.favorite_border,
+                  color: Colors.red,
+                ),
+              ),
+            );
+          },
+          selector: (context, prov) {
+            return prov.isFav(product);
+          },
         ),
       ],
     );

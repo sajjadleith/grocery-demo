@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_project/provider/dummy_provider.dart';
+import 'package:grocery_project/provider/fav_provider.dart';
 import 'package:grocery_project/provider/navbar_provider.dart';
 import 'package:grocery_project/provider/product_provider.dart';
-import 'package:grocery_project/view/screen/dumdum_screen.dart';
-import 'package:grocery_project/view/screen/dummy_screen.dart';
-import 'package:grocery_project/view/screen/order_accepted_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'core/routes/app_routes.dart';
@@ -25,6 +23,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<NavBarProvider>(create: (context) => NavBarProvider()),
         ChangeNotifierProvider<DummyProvider>(create: (context) => DummyProvider()),
         ChangeNotifierProvider<ProductProvider>(create: (context) => ProductProvider()),
+        ChangeNotifierProvider<FavProvider>(create: (context) => FavProvider()),
       ],
       child: MaterialApp(
         title: 'Grocery Demo',

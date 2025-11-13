@@ -11,7 +11,7 @@ class DummyScreen extends StatelessWidget {
       appBar: AppBar(title: Text('Dummy Screen')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+        children:      <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[

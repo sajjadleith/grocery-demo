@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_project/core/utility/widgets/custom_search_button_widget.dart';
 
-import '../../core/utility/widgets/filter_item_widget.dart';
+import '../widget/app_bar_product_widget.dart';
 import '../widget/product_item_widget.dart';
 
 class SearchProductScreen extends StatefulWidget {
@@ -34,13 +34,17 @@ class _SearchProductScreenState extends State<SearchProductScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: AppBarProductWidget(title: "Search Product"),
+              ),
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Expanded(child: CustomSearchButtonWidget(controller: searchController)),
-                    FilterItemWidget(),
+                    // FilterItemWidget(),
                   ],
                 ),
               ),

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_project/core/app_assets.dart';
 import 'package:grocery_project/core/theme_color.dart';
-import 'package:grocery_project/model/product_model.dart';
-import 'package:grocery_project/provider/product_provider.dart';
+import 'package:grocery_project/provider/fav_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../widget/app_bar_widget.dart';
@@ -17,20 +16,6 @@ class FavouriteScreen extends StatefulWidget {
 }
 
 class _FavouriteScreenState extends State<FavouriteScreen> {
-  // List<ProductModel> favourite = [
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Diet Coke", pcs: "355ml, Price", image: AppAssets.coca, price: 1.99),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  //   ProductModel(name: "Sprite Can", pcs: "325ml, Price", image: AppAssets.sprite, price: 1.50),
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,12 +24,12 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
         child: AppBarWidget(title: "Favourite"),
       ),
       body: SafeArea(
-        child: Consumer<ProductProvider>(
-          builder: (context, productProvider, child) {
+        child: Consumer<FavProvider>(
+          builder: (context, favProvider, child) {
             return ListView.separated(
               padding: EdgeInsets.symmetric(horizontal: 15),
               itemBuilder: (context, index) {
-                final product = productProvider.productList[index];
+                final product = favProvider.favList[index];
                 return InkWell(
                   onTap: () {},
                   child: ListTile(
@@ -58,19 +43,11 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                     ),
                     title: Text(
                       product.name,
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w400,
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, overflow: TextOverflow.ellipsis),
                     ),
                     subtitle: Text(
                       product.pcs,
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w400,
-                        color: ThemeColor.thirdColor,
-                      ),
+                      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: ThemeColor.thirdColor),
                     ),
                     trailing: SizedBox(
                       width: 70,
@@ -88,12 +65,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                             ),
                           ),
                           // SizedBox(width: 8),
-                          SvgPicture.asset(
-                            AppAssets.arrowForward,
-                            color: Colors.black,
-                            width: 8,
-                            height: 14,
-                          ),
+                          SvgPicture.asset(AppAssets.arrowForward, color: Colors.black, width: 8, height: 14),
                         ],
                       ),
                     ),
@@ -103,7 +75,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
               separatorBuilder: (context, index) {
                 return Divider(thickness: 1, color: Colors.grey[400]);
               },
-              itemCount: productProvider.productList.length,
+              itemCount: favProvider.favList.length,
             );
           },
         ),
