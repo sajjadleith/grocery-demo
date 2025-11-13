@@ -13,6 +13,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Fruits',
       brand: 'FreshFarm',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Banana',
@@ -23,6 +24,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Fruits',
       brand: 'TropicalGold',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Orange Juice',
@@ -33,6 +35,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Drinks',
       brand: 'SunFresh',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Tomato',
@@ -43,6 +46,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Vegetables',
       brand: 'GreenLeaf',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Potato',
@@ -53,6 +57,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Vegetables',
       brand: 'FarmersChoice',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Milk',
@@ -63,6 +68,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Dairy',
       brand: 'PureDairy',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Bread',
@@ -73,6 +79,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Bakery',
       brand: 'BakeHouse',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Eggs',
@@ -83,6 +90,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Dairy',
       brand: 'GoldenHen',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Cucumber',
@@ -93,6 +101,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Vegetables',
       brand: 'GreenLeaf',
       isFav: false,
+      cartQty: 0,
     ),
     ProductModel(
       name: 'Strawberry Yogurt',
@@ -103,6 +112,7 @@ class ProductProvider extends ChangeNotifier {
       categories: 'Dairy',
       brand: 'YogoFresh',
       isFav: false,
+      cartQty: 0,
     ),
   ];
 

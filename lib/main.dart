@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_project/provider/cart_provider.dart';
 import 'package:grocery_project/provider/dummy_provider.dart';
 import 'package:grocery_project/provider/fav_provider.dart';
 import 'package:grocery_project/provider/navbar_provider.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<DummyProvider>(create: (context) => DummyProvider()),
         ChangeNotifierProvider<ProductProvider>(create: (context) => ProductProvider()),
         ChangeNotifierProvider<FavProvider>(create: (context) => FavProvider()),
+        ChangeNotifierProvider<CartProvider>(create: (context) => CartProvider()),
       ],
       child: MaterialApp(
         title: 'Grocery Demo',

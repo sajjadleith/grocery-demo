@@ -1,10 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:grocery_project/provider/cart_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/app_assets.dart';
 import '../../core/theme_color.dart';
 import '../../core/utility/widgets/custom_button_small.dart';
+import '../../model/product_model.dart';
 
 class CardCartWidget extends StatefulWidget {
   const CardCartWidget({
@@ -13,11 +16,13 @@ class CardCartWidget extends StatefulWidget {
     required this.title,
     required this.subTitle,
     required this.price,
+    required this.product,
   });
   final String imageUrl;
   final String title;
   final String subTitle;
   final double price;
+  final ProductModel product;
   @override
   State<CardCartWidget> createState() => _CardCartWidgetState();
 }
@@ -80,7 +85,9 @@ class _CardCartWidgetState extends State<CardCartWidget> {
             children: [
               InkWell(
                 borderRadius: BorderRadius.circular(12),
-                onTap: () {},
+                onTap: () {
+                  context.read<CartProvider>().removeCart(widget.product);
+                },
                 child: SvgPicture.asset(AppAssets.cancel, color: ThemeColor.thirdColor, width: 20, height: 20),
               ),
               SizedBox(height: 50),

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grocery_project/model/product_model.dart';
+import 'package:grocery_project/provider/cart_provider.dart';
 import 'package:grocery_project/provider/fav_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -84,7 +85,9 @@ class ProductCardWidget extends StatelessWidget {
                     ),
                     InkWell(
                       borderRadius: BorderRadius.circular(17),
-                      onTap: () {},
+                      onTap: () {
+                        context.read<CartProvider>().addToCart(product);
+                      },
                       child: Ink(
                         width: 45,
                         height: 45,

@@ -7,6 +7,17 @@ class ProductModel {
   String categories;
   final String brand;
   bool isFav;
+  int cartQty;
 
-  ProductModel({required this.name, required this.pcs, this.desc, required this.image, required this.price, required this.categories, required this.brand, required this.isFav});
+  ProductModel({
+    required this.name,
+    required this.pcs,
+    this.desc,
+    required this.image,
+    required this.price,
+    required this.categories,
+    required this.brand,
+    required this.isFav,
+    required this.cartQty,
+  });
 }
