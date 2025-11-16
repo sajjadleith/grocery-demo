@@ -4,6 +4,7 @@ import 'package:grocery_project/view/widget/custome_button_widget.dart';
 import 'package:grocery_project/view/widget/show_bottom_sheet_checkout_widget.dart';
 import 'package:provider/provider.dart';
 
+import '../../model/product_model.dart';
 import '../../provider/cart_provider.dart';
 import '../widget/card_cart_widget.dart';
 
@@ -16,6 +17,7 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   final String imageUrl = "https://picsum.photos/200/300.jpg";
+  late ProductModel product;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +59,7 @@ class _CartScreenState extends State<CartScreen> {
                             child: Divider(thickness: 1, color: Colors.grey[700]),
                           );
                         },
+
                         itemCount: cartProvider.cartList.length,
                       );
               },
@@ -73,7 +76,7 @@ class _CartScreenState extends State<CartScreen> {
             onPressed: () {
               ShowBottomSheetCheckoutWidget.showBottomSheetCheckout(context);
             },
-            totalPrice: 312,
+            totalPrice: context.watch<CartProvider>().totalPrice,
           ),
         ),
       ),

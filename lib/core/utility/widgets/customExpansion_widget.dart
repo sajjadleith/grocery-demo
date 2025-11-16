@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grocery_project/core/app_assets.dart';
 import 'package:grocery_project/core/theme_color.dart';
-import 'package:grocery_project/model/product_model.dart';
+import 'package:grocery_project/provider/product_provider.dart';
+import 'package:provider/provider.dart';
 
 class CustomexpansionWidget extends StatefulWidget {
   CustomexpansionWidget({Key? key}) : super(key: key);
@@ -15,11 +16,10 @@ class _CustomexpansionWidgetState extends State<CustomexpansionWidget> {
   bool _customIcon = false;
   @override
   Widget build(BuildContext context) {
+    final productList = context.read<ProductProvider>().productList;
     return ExpansionTile(
       title: Text("Product Detail", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-      trailing: _customIcon
-          ? SvgPicture.asset(AppAssets.arrowDropDown)
-          : SvgPicture.asset(AppAssets.arrowUp),
+      trailing: _customIcon ? SvgPicture.asset(AppAssets.arrowDropDown) : SvgPicture.asset(AppAssets.arrowUp),
       shape: RoundedRectangleBorder(
         side: BorderSide(color: Colors.transparent),
         borderRadius: BorderRadius.zero,
@@ -31,13 +31,9 @@ class _CustomexpansionWidgetState extends State<CustomexpansionWidget> {
       children: <Widget>[
         ListTile(
           title: Text(
-            // productList[0].desc!,
-            "test",
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w400,
-              color: ThemeColor.thirdColor,
-            ),
+            productList[0].desc!,
+            // "test",
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: ThemeColor.thirdColor),
           ),
         ),
       ],
@@ -60,6 +56,7 @@ class _CustomExpansioinWidget2State extends State<CustomExpansioinWidget2> {
   bool _customIcon = false;
   @override
   Widget build(BuildContext context) {
+    final productList = context.read<ProductProvider>().productList;
     return ExpansionTile(
       title: Text("Nutritions", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
       trailing: Row(
@@ -71,15 +68,10 @@ class _CustomExpansioinWidget2State extends State<CustomExpansioinWidget2> {
             height: 18,
             alignment: Alignment.center,
             // margin: EdgeInsets.symmetric(horizontal: 15),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              color: ThemeColor.borderColor,
-            ),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(5), color: ThemeColor.borderColor),
             child: Text("100g", style: TextStyle(fontSize: 9, fontWeight: FontWeight.w600)),
           ),
-          _customIcon
-              ? SvgPicture.asset(AppAssets.arrowDropDown)
-              : SvgPicture.asset(AppAssets.arrowUp),
+          _customIcon ? SvgPicture.asset(AppAssets.arrowDropDown) : SvgPicture.asset(AppAssets.arrowUp),
         ],
       ),
       shape: RoundedRectangleBorder(
@@ -93,13 +85,9 @@ class _CustomExpansioinWidget2State extends State<CustomExpansioinWidget2> {
       children: <Widget>[
         ListTile(
           title: Text(
-            // productList[0].desc!,
-            "test",
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w400,
-              color: ThemeColor.thirdColor,
-            ),
+            productList[0].desc!,
+            // "test",
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: ThemeColor.thirdColor),
           ),
         ),
       ],
@@ -112,8 +100,7 @@ class _CustomExpansioinWidget2State extends State<CustomExpansioinWidget2> {
 }
 
 class CustomExpansionReviewWidget extends StatefulWidget {
-  CustomExpansionReviewWidget({Key? key, required this.icon, required this.title})
-    : super(key: key);
+  CustomExpansionReviewWidget({Key? key, required this.icon, required this.title}) : super(key: key);
   final String icon;
   final String title;
 
@@ -125,6 +112,7 @@ class _CustomExpansionReviewWidgetState extends State<CustomExpansionReviewWidge
   bool _customIcon = false;
   @override
   Widget build(BuildContext context) {
+    final productList = context.read<ProductProvider>().productList;
     return ExpansionTile(
       title: Text(
         widget.title,
@@ -135,9 +123,7 @@ class _CustomExpansionReviewWidgetState extends State<CustomExpansionReviewWidge
         spacing: 5,
         children: [
           SvgPicture.asset(widget.icon),
-          _customIcon
-              ? SvgPicture.asset(AppAssets.arrowDropDown)
-              : SvgPicture.asset(AppAssets.arrowUp),
+          _customIcon ? SvgPicture.asset(AppAssets.arrowDropDown) : SvgPicture.asset(AppAssets.arrowUp),
         ],
       ),
       shape: RoundedRectangleBorder(
@@ -151,13 +137,9 @@ class _CustomExpansionReviewWidgetState extends State<CustomExpansionReviewWidge
       children: <Widget>[
         ListTile(
           title: Text(
-            // productList[0].desc!,
-            "test",
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w400,
-              color: ThemeColor.thirdColor,
-            ),
+            productList[0].desc!,
+            // "test",
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: ThemeColor.thirdColor),
           ),
         ),
       ],
@@ -182,6 +164,7 @@ class _CustomExpansionCheckoutState extends State<CustomExpansionCheckout> {
   bool _customIcon = false;
   @override
   Widget build(BuildContext context) {
+    final productList = context.read<ProductProvider>().productList;
     return ExpansionTile(
       title: Text(
         widget.title,
@@ -195,9 +178,7 @@ class _CustomExpansionCheckoutState extends State<CustomExpansionCheckout> {
             widget.subTitle,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
           ),
-          _customIcon
-              ? SvgPicture.asset(AppAssets.arrowDropDown)
-              : SvgPicture.asset(AppAssets.arrowUp),
+          _customIcon ? SvgPicture.asset(AppAssets.arrowDropDown) : SvgPicture.asset(AppAssets.arrowUp),
         ],
       ),
       shape: RoundedRectangleBorder(
@@ -211,13 +192,9 @@ class _CustomExpansionCheckoutState extends State<CustomExpansionCheckout> {
       children: <Widget>[
         ListTile(
           title: Text(
-            // productList[0].desc!,
-            "test",
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w400,
-              color: ThemeColor.thirdColor,
-            ),
+            productList[0].desc!,
+            // "test",
+            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: ThemeColor.thirdColor),
           ),
         ),
       ],

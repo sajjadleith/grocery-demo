@@ -37,7 +37,7 @@ class ProductCardWidget extends StatelessWidget {
                   width: 100,
                   height: 60,
                   placeholder: (context, url) {
-                    return CircularProgressIndicator();
+                    return Center(child: CircularProgressIndicator());
                   },
                   imageBuilder: (context, imageProvider) {
                     return Container(

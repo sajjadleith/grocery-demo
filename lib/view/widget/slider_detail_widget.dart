@@ -28,10 +28,7 @@ class _SliderDetailWidgetState extends State<SliderDetailWidget> {
       height: 371,
       decoration: BoxDecoration(
         color: Color(0xffF2F3F2),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(25),
-          bottomRight: Radius.circular(25),
-        ),
+        borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25), bottomRight: Radius.circular(25)),
       ),
       child: Column(
         children: [
@@ -88,7 +85,7 @@ class _SliderDetailWidgetState extends State<SliderDetailWidget> {
           ),
           SizedBox(height: 40),
           Container(
-            width: MediaQuery.sizeOf(context).width,
+            width: double.infinity,
             height: 200,
             padding: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
             child: PageView.builder(

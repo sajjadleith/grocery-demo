@@ -30,6 +30,7 @@ class CardCartWidget extends StatefulWidget {
 class _CardCartWidgetState extends State<CardCartWidget> {
   @override
   Widget build(BuildContext context) {
+    final cartProvider = context.read<CartProvider>();
     return Container(
       width: double.infinity,
       // height: 200,
@@ -63,18 +64,30 @@ class _CardCartWidgetState extends State<CardCartWidget> {
               SizedBox(height: 13),
               Row(
                 children: [
-                  CustomButtonSmall(icon: AppAssets.decrease, onTap: () {}, color: Colors.grey),
+                  CustomButtonSmall(
+                    icon: AppAssets.decrease,
+                    onTap: () {
+                      context.read<CartProvider>().decrease(widget.product);
+                    },
+                    color: Colors.grey,
+                  ),
                   SizedBox(width: 10),
                   SizedBox(
                     width: 30,
                     child: Text(
                       textAlign: TextAlign.center,
-                      "12",
+                      "${widget.product.cartQty}",
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600, overflow: TextOverflow.ellipsis),
                     ),
                   ),
                   SizedBox(width: 10),
-                  CustomButtonSmall(icon: AppAssets.increase, onTap: () {}, color: ThemeColor.primaryColor),
+                  CustomButtonSmall(
+                    icon: AppAssets.increase,
+                    onTap: () {
+                      context.read<CartProvider>().increase(widget.product);
+                    },
+                    color: ThemeColor.primaryColor,
+                  ),
                 ],
               ),
             ],
